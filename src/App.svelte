@@ -1,11 +1,17 @@
 <script>
   import Day1 from "./puzzles/Day1.svelte";
+  import Day2 from "./puzzles/Day2.svelte";
+  import Day3 from "./puzzles/Day3.svelte";
+  import Day4 from "./puzzles/Day4.svelte";
 
   let current = "none";
 
   let options = {
     none: null,
     Day1,
+    Day2,
+    Day3,
+      Day4,
   };
 </script>
 
@@ -32,7 +38,7 @@
 </style>
 
 <main>
-  <h1>Advent Of Code 2020</h1>
+  <h1>Advent Of Code 2020!!!</h1>
   <p>
     My attempt to complete the puzzles of Advent of Code 2020 using Svelte & JS.
   </p>

@@ -1,23 +1,29 @@
 <script>
   import ExpenseReport from "../lib/expense_report";
-  import data from "../input/day1.js";
 
-  const expenseReport = new ExpenseReport(data);
-
-  console.log(expenseReport);
-
-  let threeSomeFirst, threeSomeSecond, threeSomeThird;
-  [
-    threeSomeFirst,
-    threeSomeSecond,
-    threeSomeThird,
-  ] = expenseReport.findThreeThatSumTo(2020);
+  let value = "";
 
   let twoSomeFirst, twoSomeSecond;
-  [twoSomeFirst, twoSomeSecond] = expenseReport.findTwoThatSumTo(2020);
+  let threeSomeFirst, threeSomeSecond, threeSomeThird;
+
+  const expenseReport = new ExpenseReport();
+
+  $: {
+    expenseReport.load(value.split(" ").map(Number));
+
+    [twoSomeFirst, twoSomeSecond] = expenseReport.findTwoThatSumTo(2020);
+    [
+      threeSomeFirst,
+      threeSomeSecond,
+      threeSomeThird,
+    ] = expenseReport.findThreeThatSumTo(2020);
+  }
 </script>
 
 <h2>Day1</h2>
+<label for="input">Your expense report input..</label>
+<input id="input" type="textarea" bind:value />
+
 <h3>First Puzzle</h3>
 <p>
   First number is

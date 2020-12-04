@@ -3,6 +3,10 @@ export default class ExpenseReport {
     this.data = data;
   }
 
+  load(data) {
+    this.data = data;
+  }
+
   findTwoThatSumTo(value) {
     var i, j;
     for (i = 0; i < this.data.length - 1; i++) {
