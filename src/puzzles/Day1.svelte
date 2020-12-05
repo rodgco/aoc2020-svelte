@@ -1,42 +1,29 @@
 <script>
-  import ExpenseReport from "../lib/expense-report";
+  import SumFinder from "../lib/sum-finder";
 
-  let value = "";
+  let input = `1721
+979
+366
+299
+675
+1456`;
 
-  let twoSomeFirst, twoSomeSecond;
-  let threeSomeFirst, threeSomeSecond, threeSomeThird;
-
-  const expenseReport = new ExpenseReport();
+  let result1 = 0;
+  let result2 = 0;
 
   $: {
-    expenseReport.load(value.split(" ").map(Number));
+    const sumFinder = new SumFinder(input.split("\n").map(Number));
 
-    [twoSomeFirst, twoSomeSecond] = expenseReport.findTwoThatSumTo(2020);
-    [
-      threeSomeFirst,
-      threeSomeSecond,
-      threeSomeThird,
-    ] = expenseReport.findThreeThatSumTo(2020);
+    result1 = sumFinder.findTwoThatSumTo(2020).reduce((a, v) => a * v, 1);
+    result2 = sumFinder.findThreeThatSumTo(2020).reduce((a, v) => a * v, 1);
   }
 </script>
 
-<h2>Day1</h2>
 <label for="input">Your expense report input..</label>
-<input id="input" type="textarea" bind:value />
+<textarea id="input" bind:value={input} />
 
 <h3>First Puzzle</h3>
-<p>
-  First number is
-  {twoSomeFirst}, second number is
-  {twoSomeSecond}. They times
-  {twoSomeFirst * twoSomeSecond}
-</p>
+<p>Two numbers multiplied: {result1}</p>
 
 <h3>Second Puzzle</h3>
-<p>
-  First number is
-  {threeSomeFirst}, second number is
-  {threeSomeSecond}, third is
-  {threeSomeThird}. They times
-  {threeSomeFirst * threeSomeSecond * threeSomeThird}
-</p>
+<p>Three number multiplied: {result2}</p>
