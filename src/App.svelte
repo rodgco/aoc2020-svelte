@@ -3,6 +3,7 @@
   import Day2 from "./puzzles/Day2.svelte";
   import Day3 from "./puzzles/Day3.svelte";
   import Day4 from "./puzzles/Day4.svelte";
+  import Day5 from "./puzzles/Day5.svelte";
 
   let current = "none";
 
@@ -11,7 +12,8 @@
     Day1,
     Day2,
     Day3,
-      Day4,
+    Day4,
+    Day5,
   };
 </script>
 
