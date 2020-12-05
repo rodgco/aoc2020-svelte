@@ -1,5 +1,5 @@
 <script>
-  import ExpenseReport from "../lib/expense_report";
+  import ExpenseReport from "../lib/expense-report";
 
   let value = "";
 
