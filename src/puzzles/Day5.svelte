@@ -16,12 +16,11 @@
       });
     result1 = Math.max(...seatList);
 
-    for (let i = 0; i <= seatList.length - 2; i++) {
-      if (seatList[i] === seatList[i + 1] - 2) {
-        result2 = seatList[i] + 1;
-        break;
+    result2 = seatList.find((id, index, array) => {
+      if (array[index + 1] !== id + 1) {
+        return true;
       }
-    }
+    });
   }
 </script>
 
