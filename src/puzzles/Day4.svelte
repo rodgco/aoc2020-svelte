@@ -57,7 +57,7 @@ iyr:2011 ecl:brn hgt:59in`;
     as optional.
     <em>In your batch file, how many passports are valid?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>
@@ -69,5 +69,5 @@ iyr:2011 ecl:brn hgt:59in`;
     as optional.
     <em>In your batch file, how many passports are valid?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

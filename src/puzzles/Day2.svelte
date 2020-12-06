@@ -43,12 +43,12 @@
 
   <h2>--- Part One ---</h2>
   <p><em>How many passwords are valid</em> according to their policies?</p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>
     <em>How many passwords are valid</em>
     according to the new interpretation of the policies?
   </p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

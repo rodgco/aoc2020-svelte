@@ -68,7 +68,7 @@ b`;
     "yes".
     <em>What is the sum of those counts?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>
@@ -77,5 +77,5 @@ b`;
     answered "yes".
     <em>What is the sum of those counts?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

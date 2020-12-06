@@ -45,9 +45,9 @@ FFBBFFBLRL`;
     As a sanity check, look through your list of boarding passes.
     <em>What is the highest seat ID on a boarding pass?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p><em>What is the ID of your seat?</em></p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

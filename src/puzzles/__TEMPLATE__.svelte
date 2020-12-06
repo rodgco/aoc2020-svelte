@@ -25,9 +25,9 @@
 
   <h2>--- Part One ---</h2>
   <p>Copy from the challenge!</p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>Copy from the challenge!</p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

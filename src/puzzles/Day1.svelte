@@ -43,7 +43,7 @@
     <em>Find the two entries that sum to
       <code>2020</code>; what do you get if you multiply them together?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>
@@ -51,5 +51,5 @@
     <em>what is the product of the three entries that sum to
       <code>2020</code>?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>

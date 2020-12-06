@@ -44,12 +44,12 @@
     and down 1,
     <em>how many trees would you encounter?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+  <p>Your puzzle answer should be <code>{result1}</code>.</p>
 
   <h2>--- Part Two ---</h2>
   <p>
     <em>What do you get if you multiply together the number of trees encountered
       on each of the listed slopes?</em>
   </p>
-  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+  <p>Your puzzle answer should be <code>{result2}</code>.</p>
 </article>
