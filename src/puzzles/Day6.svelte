@@ -24,20 +24,17 @@ b`;
     if (input) {
       result1 = 0;
       result2 = 0;
-      let cdf = new CustomsDeclarationForm();
 
-      input.split("\n").forEach((p) => {
-        if (p === "") {
-          result1 += cdf.countQuestions();
-          result2 += cdf.countQuestionsAll();
+      input.split("\n\n").forEach((group) => {
+        let cdf = new CustomsDeclarationForm();
 
-          cdf = new CustomsDeclarationForm();
-        } else {
-          cdf.addIndividualAnswer(p);
-        }
+        group.split("\n").forEach((answer) => {
+          cdf.addIndividualAnswer(answer);
+        });
+
+        result1 += cdf.countQuestions();
+        result2 += cdf.countQuestionsAll();
       });
-      result1 += cdf.countQuestions();
-      result2 += cdf.countQuestionsAll();
     }
   }
 </script>
@@ -50,10 +47,16 @@ b`;
     <em>good abstraction and code readability.</em>
   </p>
   <p>
-    This "empty line" as a record separator has appeared before (Passport
-    Validation), and I'm not particularly happy on how I'm handling it, as I
-    have duplicate code to process the last record outside of the main loop.
-    Will fix that soon!
+    <s>This "empty line" as a record separator has appeared before (Passport
+      Validation), and I'm not particularly happy on how I'm handling it, as I
+      have duplicate code to process the last record outside of the main loop.
+      Will fix that soon!</s>
+  </p>
+  <p>
+    Fixed with
+    <em>double line break split</em>
+    or
+    <code>split("\n\n")</code>. Code is cleaner!
   </p>
 
   <h2>Your input...</h2>
