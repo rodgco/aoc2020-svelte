@@ -1,33 +1,53 @@
 <script>
-  import binarySpacePartioner, {
+  import binarySpacePartitioner, {
     calcSeatId,
-  } from "../lib/binary-space-partioner";
+  } from "../lib/binary-space-partitioner";
 
-  let input = "FBFBBFFRLR";
+  let input = `FBFBBFFRLR
+FFBBFFBLLL
+FFBBFFBLRL`;
+
   let result1 = 0;
   let result2 = 0;
 
   $: {
     let seatList = input
       .split("\n")
-      .map((s) => calcSeatId(...binarySpacePartioner(s)))
+      .map((s) => calcSeatId(...binarySpacePartitioner(s)))
       .sort(function (a, b) {
         return a - b;
       });
     result1 = Math.max(...seatList);
 
-    result2 = seatList.find((id, index, array) => {
-      if (array[index + 1] !== id + 1) {
-        return true;
-      }
-    });
+    result2 =
+      seatList.find((id, index, array) => {
+        if (id === array[index + 1] - 2) {
+          return true;
+        }
+      }) + 1;
   }
 </script>
 
-<h1>Day 5</h1>
-<textarea bind:value={input} />
-<h2>Puzzle 1</h2>
-<p>Highest seat id: {result1}</p>
+<article>
+  <h2>--- Day 5: Binary Boarding ---</h2>
+  <p>
+    What I really loved in this one is that the solution is pure math,
+    <em>binary math</em>! I've used the
+    <em>power of powers of two</em>
+    to solve this one!
+  </p>
 
-<h2>Puzzle 2</h2>
-<p>Your seat id: {result2}</p>
+  <h2>Your input...</h2>
+  <textarea wrap="off" cols="30" rows="5" bind:value={input} />
+
+  <h2>--- Part One ---</h2>
+  <p>
+    As a sanity check, look through your list of boarding passes.
+    <em>What is the highest seat ID on a boarding pass?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+
+  <h2>--- Part Two ---</h2>
+  <p><em>What is the ID of your seat?</em></p>
+  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+</article>

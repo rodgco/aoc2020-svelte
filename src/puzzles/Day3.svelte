@@ -28,10 +28,28 @@
   }
 </script>
 
-<h1>Day 3</h1>
-<textarea bind:value={input} />
-<h2>Puzzle 1</h2>
-<p>Number of trees: {result1}</p>
+<article>
+  <h2>--- Day 3: Toboggan Trajectory ---</h2>
+  <p>
+    I really like those challenges that use infinite loops, although this one
+    was on wasn't complicated.
+  </p>
 
-<h2>Puzzle 2</h2>
-<p>Result: {result2}</p>
+  <h2>Your input...</h2>
+  <textarea wrap="off" cols="30" rows="5" bind:value={input} />
+
+  <h2>--- Part One ---</h2>
+  <p>
+    Starting at the top-left corner of your map and following a slope of right 3
+    and down 1,
+    <em>how many trees would you encounter?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+
+  <h2>--- Part Two ---</h2>
+  <p>
+    <em>What do you get if you multiply together the number of trees encountered
+      on each of the listed slopes?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+</article>

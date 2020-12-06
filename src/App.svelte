@@ -1,59 +1,36 @@
 <script>
-  import Day1 from "./puzzles/Day1.svelte";
-  import Day2 from "./puzzles/Day2.svelte";
-  import Day3 from "./puzzles/Day3.svelte";
-  import Day4 from "./puzzles/Day4.svelte";
-  import Day5 from "./puzzles/Day5.svelte";
+  import Router from "svelte-spa-router";
+  import routes from "./routes";
 
-  let current = "none";
-
-  let options = {
-    none: null,
-    Day1,
-    Day2,
-    Day3,
-    Day4,
-    Day5,
-  };
+  function conditionsFailed(event) {
+    logger.debug("conditionsFailed event", event.detail);
+  }
 </script>
 
-<style>
-  main {
-    text-align: center;
-    padding: 1em;
-    max-width: 240px;
-    margin: 0 auto;
-  }
-
-  h1 {
-    color: #ff3e00;
-    text-transform: uppercase;
-    font-size: 4em;
-    font-weight: 100;
-  }
-
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
-  }
-</style>
-
 <main>
-  <h1>Advent Of Code 2020!!!</h1>
+  <header>
+    <div>
+      <h1 class="title-global"><a href="/">Advent of Code</a></h1>
+    </div>
+    <div>
+      <h1 class="title-event">
+        &nbsp;&nbsp;&nbsp;<span class="title-event-wrap">0xffff&amp;</span><a
+          href="/2020">2020</a><span class="title-event-wrap" />
+      </h1>
+    </div>
+  </header>
   <p>
-    My attempt to complete the puzzles of Advent of Code 2020 using Svelte & JS.
+    My attempt to complete the puzzles of
+    <a href="https://adventofcode.com/2020">Advent of Code 2020</a>
+    using
+    <a href="https://svelte.dev">Svelte</a>
+    & JS. You'll find the code behind this website, in
+    <a href="https://github.com/rodgco/aoc2020-svelte">Github</a>, including the
+    how I cleverly solved the puzzles.
   </p>
 
-  <select name="current" bind:value={current}>
-    {#each Object.keys(options) as option (option)}
-      <option value={option}>{option}</option>
-    {/each}
-  </select>
-
-  {#if current !== 'none'}
-    <svelte:component this={options[current]} />
-  {:else}
-    <h2>Select a day</h2>
-  {/if}
+  <Router
+    {routes}
+    restoreScrollState={true}
+    on:conditionsFailed={conditionsFailed} />
 </main>

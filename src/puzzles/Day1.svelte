@@ -12,18 +12,44 @@
   let result2 = 0;
 
   $: {
-    const sumFinder = new SumFinder(input.split("\n").map(Number));
+    if (input) {
+      const sumFinder = new SumFinder(input.split("\n").map(Number));
 
-    result1 = sumFinder.findTwoThatSumTo(2020).reduce((a, v) => a * v, 1);
-    result2 = sumFinder.findThreeThatSumTo(2020).reduce((a, v) => a * v, 1);
+      result1 = sumFinder.findTwoThatSumTo(2020).reduce((a, v) => a * v, 1);
+      result2 = sumFinder.findThreeThatSumTo(2020).reduce((a, v) => a * v, 1);
+    }
   }
 </script>
 
-<label for="input">Your expense report input..</label>
-<textarea id="input" bind:value={input} />
+<article>
+  <h2>--- Day 1: Report Repair ---</h2>
+  <p>
+    For this solution I've created a class named
+    <code>SumFinder</code>. For my first solution I've created fuctions to solve
+    the two parts of this puzzle.
+  </p>
+  <p>
+    Later I've refactored it into a recursive function
+    <code>findNEntriesThatSumTo</code>
+    that would find any number of entries in a Array that sum up to a number.
+    I'm sure it will be handy in the future!
+  </p>
 
-<h3>First Puzzle</h3>
-<p>Two numbers multiplied: {result1}</p>
+  <h2>Your input...</h2>
+  <textarea wrap="off" cols="30" rows="5" bind:value={input} />
 
-<h3>Second Puzzle</h3>
-<p>Three number multiplied: {result2}</p>
+  <h2>--- Part One ---</h2>
+  <p>
+    <em>Find the two entries that sum to
+      <code>2020</code>; what do you get if you multiply them together?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+
+  <h2>--- Part Two ---</h2>
+  <p>
+    In your expense report,
+    <em>what is the product of the three entries that sum to
+      <code>2020</code>?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+</article>

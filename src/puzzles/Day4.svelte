@@ -40,10 +40,38 @@ iyr:2011 ecl:brn hgt:59in`;
   }
 </script>
 
-<h1>Day 4</h1>
-<textarea bind:value={input} />
-<h2>Puzzle 1</h2>
-<p>Valid passports: {result1}</p>
+<article>
+  <h2>--- Day 4: Passport Processing ---</h2>
+  <p>
+    I really appreciated how I expressed the rules in an object, and how easy it
+    was to use reduce to validate all of them. Because of CID being optional I
+    used a separate list of fields for validation, but could have used
+    Object.keys() to traverse the list.
+  </p>
 
-<h2>Puzzle 2</h2>
-<p>Valid passports: {result2}</p>
+  <h2>Your input...</h2>
+  <textarea wrap="off" cols="30" rows="5" bind:value={input} />
+
+  <h2>--- Part One ---</h2>
+  <p>
+    Count the number of
+    <em>valid</em>
+    passports - those that have all required fields. Treat
+    <code>cid</code>
+    as optional.
+    <em>In your batch file, how many passports are valid?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result1}</code>.</p>
+
+  <h2>--- Part Two ---</h2>
+  <p>
+    Count the number of
+    <em>valid</em>
+    passports - those that have all required fields
+    <em>and valid values</em>. Continue to treat
+    <code>cid</code>
+    as optional.
+    <em>In your batch file, how many passports are valid?</em>
+  </p>
+  <p>Your puzzle answer gotta be <code>{result2}</code>.</p>
+</article>
