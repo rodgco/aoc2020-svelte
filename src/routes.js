@@ -4,6 +4,7 @@ import Puzzle from "./pages/Puzzle.svelte";
 
 export default {
   "/": Home,
+  "/2020": Home,
   "/2020/day/:day": Puzzle,
 
   // "*": ErrorPage,
