@@ -20,23 +20,19 @@ iyr:2011 ecl:brn hgt:59in`;
   $: {
     result1 = 0;
     result2 = 0;
-    let passport = new Passport();
 
-    input.split("\n").forEach((p) => {
-      if (p === "") {
-        if (passport.isValid1()) result1 += 1;
-        if (passport.isValid2()) result2 += 1;
-        passport = new Passport();
-      } else {
-        p.split(" ").forEach((r) => {
-          let key, value;
-          [key, value] = r.split(":");
-          passport.field(key, value);
-        });
-      }
+    input.split("\n\n").forEach((p) => {
+      let passport = new Passport();
+
+      p.split(/[\s\n]+/).forEach((r) => {
+        let key, value;
+        [key, value] = r.split(":");
+        passport.field(key, value);
+      });
+
+      if (passport.isValid1()) result1 += 1;
+      if (passport.isValid2()) result2 += 1;
     });
-    if (passport.isValid1()) result1 += 1;
-    if (passport.isValid2()) result2 += 1;
   }
 </script>
 
