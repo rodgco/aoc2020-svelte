@@ -6,7 +6,6 @@ export default class Toboggan {
   }
 
   countTrees(x, y) {
-    console.log(this.input);
     let trees = 0;
     let currentX = 0;
     let currentY = 0;
@@ -15,7 +14,6 @@ export default class Toboggan {
     currentY += y;
 
     while (currentY < this.height) {
-      console.log("X:", currentX, " Y:", currentY);
       if (this.input[currentY][currentX] === "#") trees += 1;
 
       currentX = (currentX + x) % this.width;
