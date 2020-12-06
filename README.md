@@ -6,4 +6,5 @@ As I'm working with Svelte let's give it a try, let's see if JS is developer fri
 
 # Demo
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bc499572-7f17-4bae-a865-708a2bd9100b/deploy-status)](https://app.netlify.com/sites/zen-swirles-a7f343/deploys)
 This site is running at [rodgco >> Advent of Code 2020](http://aoc2020.rodg.co).
