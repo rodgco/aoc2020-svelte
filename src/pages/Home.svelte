@@ -24,6 +24,7 @@
   <pre class="calendar"><a
       aria-label="Day 1, two stars"
       href="/2020/day/1"
+      use:link
       class="calendar-day1 calendar-verycomplete">              .<span
         class="calendar-color-l">.........</span><span
         class="calendar-color-r">|</span><span
@@ -34,6 +35,7 @@
   <a
       aria-label="Day 2, two stars"
       href="/2020/day/2"
+      use:link
       class="calendar-day2 calendar-verycomplete">           ''' <span
         class="calendar-color-w">.'</span>  <span
         class="calendar-color-w">-</span>  <span
@@ -47,6 +49,7 @@
   <a
       aria-label="Day 3, two stars"
       href="/2020/day/3"
+      use:link
       class="calendar-day3 calendar-verycomplete">          ~  ~ <span
         class="calendar-color-w">'.'.</span> <span
         class="calendar-color-w">-</span>   <span
@@ -59,6 +62,7 @@
   <a
       aria-label="Day 4, two stars"
       href="/2020/day/4"
+      use:link
       class="calendar-day4 calendar-verycomplete">        ~   ~ ~  <span
         class="calendar-color-b">~</span> <span
         class="calendar-color-w">''..'''</span><span
@@ -70,6 +74,7 @@
   <a
       aria-label="Day 5, two stars"
       href="/2020/day/5"
+      use:link
       class="calendar-day5 calendar-verycomplete">           . ~  ~  <span
         class="calendar-color-b">~</span> <span
         class="calendar-color-a">____/</span> <span
