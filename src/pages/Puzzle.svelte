@@ -7,6 +7,7 @@
   import Day4 from "../puzzles/Day4.svelte";
   import Day5 from "../puzzles/Day5.svelte";
   import Day6 from "../puzzles/Day6.svelte";
+  import Day7 from "../puzzles/Day7.svelte";
 
   export let params = {};
 
@@ -17,6 +18,7 @@
     4: Day4,
     5: Day5,
     6: Day6,
+    7: Day7,
   };
 
   $: prev = params.day !== "1";
