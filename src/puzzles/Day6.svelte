@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import CustomsDeclarationForm from "../lib/customs-declation-form";
 
   let input = `abc
@@ -19,22 +20,24 @@ b`;
 
   let result1;
   let result2;
+  let t0, t1, t2, t3;
 
   $: {
     if (input) {
-      result1 = 0;
-      result2 = 0;
-
-      input.split("\n\n").forEach((group) => {
+      t0 = performance.now(); //setup
+      let list = input.split("\n\n").map((group) => {
         let cdf = new CustomsDeclarationForm();
 
         group.split("\n").forEach((answer) => {
           cdf.addIndividualAnswer(answer);
         });
-
-        result1 += cdf.countQuestions();
-        result2 += cdf.countQuestionsAll();
+        return cdf;
       });
+      t1 = performance.now(); //puzzle #1
+      result1 = list.reduce((acc, cdf) => acc + cdf.countQuestions(), 0);
+      t2 = performance.now(); //puzzle #2
+      result2 = list.reduce((acc, cdf) => acc + cdf.countQuestionsAll(), 0);
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -78,4 +81,6 @@ b`;
     <em>What is the sum of those counts?</em>
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

@@ -4,8 +4,6 @@
 
   export let params = {};
 
-  console.log("Puzzles:", puzzles);
-
   let options = {};
 
   Object.keys(puzzles).map((k, i) => {

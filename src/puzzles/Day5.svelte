@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import binarySpacePartitioner, {
     calcSeatId,
   } from "../lib/binary-space-partitioner";
@@ -9,22 +10,26 @@ FFBBFFBLRL`;
 
   let result1 = 0;
   let result2 = 0;
+  let t0, t1, t2, t3;
 
   $: {
+    t0 = performance.now(); //setup
     let seatList = input
       .split("\n")
       .map((s) => calcSeatId(...binarySpacePartitioner(s)))
       .sort(function (a, b) {
         return a - b;
       });
+    t1 = performance.now(); //puzzle #1
     result1 = Math.max(...seatList);
-
+    t2 = performance.now(); //puzzle #2
     result2 =
       seatList.find((id, index, array) => {
         if (id === array[index + 1] - 2) {
           return true;
         }
       }) + 1;
+    t3 = performance.now(); //end of game
   }
 </script>
 
@@ -50,4 +55,6 @@ FFBBFFBLRL`;
   <h2>--- Part Two ---</h2>
   <p><em>What is the ID of your seat?</em></p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

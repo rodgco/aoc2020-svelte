@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import Toboggan from "../lib/toboggan.js";
 
   let input = `..##.......
@@ -15,16 +16,21 @@
 
   let result1 = 0;
   let result2 = 0;
+  let t0, t1, t2, t3;
 
   $: {
+    t0 = performance.now(); //setup
     let toboggan = new Toboggan(input.split("\n"));
+    t1 = performance.now(); //puzzle #1
     result1 = toboggan.countTrees(3, 1);
+    t2 = performance.now(); //puzzle #2
     result2 =
       toboggan.countTrees(1, 1) *
       toboggan.countTrees(3, 1) *
       toboggan.countTrees(5, 1) *
       toboggan.countTrees(7, 1) *
       toboggan.countTrees(1, 2);
+    t3 = performance.now(); //end of game
   }
 </script>
 
@@ -52,4 +58,6 @@
       on each of the listed slopes?</em>
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

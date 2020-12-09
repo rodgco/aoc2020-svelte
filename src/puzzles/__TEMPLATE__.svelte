@@ -1,11 +1,18 @@
 <script>
+  import Performance from "../components/Performance.svelte";
+
   let input = ``;
 
   let result1;
   let result2;
+  let t0, t1, t2, t3;
 
   $: {
     if (input) {
+      t0 = performance.now(); //setup
+      t1 = performance.now(); //puzzle #1
+      t2 = performance.now(); //puzzle #2
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -30,4 +37,6 @@
   <h2>--- Part Two ---</h2>
   <p>Copy from the challenge!</p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

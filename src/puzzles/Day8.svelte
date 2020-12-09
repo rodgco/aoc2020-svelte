@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import HandheldMachine from "../lib/handheld-machine";
 
   let input = `nop +0
@@ -17,14 +18,14 @@ acc +6`;
 
   $: {
     if (input) {
-      t0 = performance.now();
+      t0 = performance.now(); //setup
       let program = input.split("\n").map((line) => line.split(" "));
       let handheld = new HandheldMachine(program);
-      t1 = performance.now();
+      t1 = performance.now(); //puzzle #1
       result1 = handheld.run().accumulator;
-      t2 = performance.now();
+      t2 = performance.now(); //puzzle #2
       result2 = handheld.autofix().accumulator;
-      t3 = performance.now();
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -63,15 +64,5 @@ acc +6`;
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
 
-  <p>
-    Setup
-    <em>{t1 - t0}</em>
-    milisseconds<br />
-    First run
-    <em>{t2 - t1}</em>
-    milisseconds<br />
-    Second run
-    <em>{t3 - t2}</em>
-    milisseconds
-  </p>
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

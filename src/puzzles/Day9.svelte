@@ -1,5 +1,7 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import XMAS from "../lib/xmas";
+
   let input = `35
 20
 15
@@ -28,18 +30,23 @@
 
   $: {
     if (input) {
-      t0 = performance.now();
+      t0 = performance.now(); //setup
       let xmas = new XMAS(input.split("\n").map(Number), Number(preamble));
-      t1 = performance.now();
+      t1 = performance.now(); //puzzle #1
       for (let i = 0; i < xmas.length; i++) {
         if (!xmas.validate(i)) {
           result1 = xmas.value(i);
-          t2 = performance.now();
-          result2 = xmas.validateSet(i);
-          t3 = performance.now();
           break;
         }
       }
+      t2 = performance.now(); //puzzle #2
+      for (let i = 0; i < xmas.length; i++) {
+        if (!xmas.validate(i)) {
+          result2 = xmas.validateSet(i);
+          break;
+        }
+      }
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -68,15 +75,5 @@
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
 
-  <p>
-    Setup
-    <em>{t1 - t0}</em>
-    milisseconds<br />
-    First run
-    <em>{t2 - t1}</em>
-    milisseconds<br />
-    Second run
-    <em>{t3 - t2}</em>
-    milisseconds
-  </p>
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

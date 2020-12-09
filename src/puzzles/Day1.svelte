@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import SumFinder from "../lib/sum-finder";
 
   let input = `1721
@@ -10,13 +11,17 @@
 
   let result1 = 0;
   let result2 = 0;
+  let t0, t1, t2, t3;
 
   $: {
     if (input) {
+      t0 = performance.now(); //setup
       const sumFinder = new SumFinder(input.split("\n").map(Number));
-
+      t1 = performance.now(); //puzzle #1
       result1 = sumFinder.findTwoThatSumTo(2020).reduce((a, v) => a * v, 1);
+      t2 = performance.now(); //puzzle #2
       result2 = sumFinder.findThreeThatSumTo(2020).reduce((a, v) => a * v, 1);
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -52,4 +57,6 @@
       <code>2020</code>?</em>
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

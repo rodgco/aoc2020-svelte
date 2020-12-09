@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import Passport from "../lib/passport";
 
   let input = `ecl:gry pid:860033327 eyr:2020 hcl:#fffffd
@@ -16,12 +17,11 @@ hcl:#cfa07d eyr:2025 pid:166559648
 iyr:2011 ecl:brn hgt:59in`;
 
   let result1, result2;
+  let t0, t1, t2, t3;
 
   $: {
-    result1 = 0;
-    result2 = 0;
-
-    input.split("\n\n").forEach((p) => {
+    t0 = performance.now(); //setup
+    let list = input.split("\n\n").map((p) => {
       let passport = new Passport();
 
       p.split(/[\s\n]+/).forEach((r) => {
@@ -29,10 +29,19 @@ iyr:2011 ecl:brn hgt:59in`;
         [key, value] = r.split(":");
         passport.field(key, value);
       });
-
-      if (passport.isValid1()) result1 += 1;
-      if (passport.isValid2()) result2 += 1;
+      return passport;
     });
+    t1 = performance.now(); //puzzle #1
+    result1 = list.reduce(
+      (acc, passport) => (acc + passport.isValid1() ? 1 : 0),
+      0
+    );
+    t2 = performance.now(); //puzzle #2
+    result2 = list.reduce(
+      (acc, passport) => (acc + passport.isValid2() ? 1 : 0),
+      0
+    );
+    t3 = performance.now(); //end of game
   }
 </script>
 
@@ -70,4 +79,5 @@ iyr:2011 ecl:brn hgt:59in`;
     <em>In your batch file, how many passports are valid?</em>
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

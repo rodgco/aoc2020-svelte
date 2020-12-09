@@ -5,9 +5,6 @@
   let options = Object.keys(puzzles).map((k, i) => {
     return { index: i + 1, title: k };
   });
-
-  console.log(puzzles);
-  console.log(options);
 </script>
 
 <main>

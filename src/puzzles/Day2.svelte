@@ -1,32 +1,37 @@
 <script>
+  import Performance from "../components/Performance.svelte";
+
   let input = `1-3 a: abcde
 1-3 b: cdefg
 2-9 c: ccccccccc`;
 
   let result1 = 0;
   let result2 = 0;
+  let t0, t1, t2, t3;
 
   $: {
-    result1 = 0;
-    result2 = 0;
-
-    input.split("\n").forEach((text) => {
+    t0 = performance.now(); //setup
+    let list = input.split("\n").map((text) => {
       if (text) {
-        let lower, upper, letter, password;
-        [lower, upper, letter, password] = text
-          .split(/[\s-:]+/)
-          .map((n) => Number(n) || n);
-
-        const regExp = new RegExp(letter, "gi");
-        const count = (password.match(regExp) || []).length;
-        result1 += count >= lower && count <= upper ? 1 : 0;
-
-        const valid =
-          (password[lower - 1] === letter || password[upper - 1] === letter) &&
-          password[lower - 1] !== password[upper - 1];
-        result2 += valid ? 1 : 0;
+        return text.split(/[\s-:]+/).map((n) => Number(n) || n);
       }
     });
+    t1 = performance.now(); //puzzle #1
+    result1 = list.reduce((acc, text) => {
+      let [lower, upper, letter, password] = text;
+      const regExp = new RegExp(letter, "gi");
+      const count = (password.match(regExp) || []).length;
+      return acc + count >= lower && count <= upper ? 1 : 0;
+    }, 0);
+    t2 = performance.now(); //puzzle #2
+    result2 = list.reduce((acc, text) => {
+      let [lower, upper, letter, password] = text;
+      const valid =
+        (password[lower - 1] === letter || password[upper - 1] === letter) &&
+        password[lower - 1] !== password[upper - 1];
+      return acc + valid ? 1 : 0;
+    });
+    t3 = performance.now(); //end of game
   }
 </script>
 
@@ -51,4 +56,6 @@
     according to the new interpretation of the policies?
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>

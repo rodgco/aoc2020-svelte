@@ -1,4 +1,5 @@
 <script>
+  import Performance from "../components/Performance.svelte";
   import Bag from "../lib/bag";
 
   let input = `light red bags contain 1 bright white bag, 2 muted yellow bags.
@@ -13,9 +14,11 @@ dotted black bags contain no other bags.`;
 
   let result1;
   let result2;
+  let t0, t1, t2, t3;
 
   $: {
     if (input) {
+      t0 = performance.now(); //setup
       Bag.reset();
 
       input.split("\n").forEach((line) => {
@@ -41,8 +44,11 @@ dotted black bags contain no other bags.`;
           newBag.addBags(containedBagList);
         }
       });
+      t1 = performance.now(); //puzzle #1
       result1 = Bag.list["shiny gold"].countContainers();
+      t2 = performance.now(); //puzzle #2
       result2 = Bag.list["shiny gold"].countBags();
+      t3 = performance.now(); //end of game
     }
   }
 </script>
@@ -80,4 +86,6 @@ dotted black bags contain no other bags.`;
       bag?</em>
   </p>
   <p>Your puzzle answer should be <code>{result2}</code>.</p>
+
+  <Performance {t0} {t1} {t2} {t3} />
 </article>
