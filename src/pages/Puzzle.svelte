@@ -1,29 +1,16 @@
 <script>
   import { link } from "svelte-spa-router";
-
-  import Day1 from "../puzzles/Day1.svelte";
-  import Day2 from "../puzzles/Day2.svelte";
-  import Day3 from "../puzzles/Day3.svelte";
-  import Day4 from "../puzzles/Day4.svelte";
-  import Day5 from "../puzzles/Day5.svelte";
-  import Day6 from "../puzzles/Day6.svelte";
-  import Day7 from "../puzzles/Day7.svelte";
-  import Day8 from "../puzzles/Day8.svelte";
-  import Day9 from "../puzzles/Day9.svelte";
+  import * as puzzles from "../puzzles/puzzles";
 
   export let params = {};
 
-  let options = {
-    1: Day1,
-    2: Day2,
-    3: Day3,
-    4: Day4,
-    5: Day5,
-    6: Day6,
-    7: Day7,
-    8: Day8,
-    9: Day9,
-  };
+  console.log("Puzzles:", puzzles);
+
+  let options = {};
+
+  Object.keys(puzzles).map((k, i) => {
+    options[i + 1] = puzzles[k];
+  });
 
   $: prev = params.day !== "1";
   $: next = Number(params.day) !== Object.keys(options).length;
