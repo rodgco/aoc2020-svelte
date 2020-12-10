@@ -7,3 +7,4 @@ export { default as Day6 } from "../puzzles/Day6.svelte";
 export { default as Day7 } from "../puzzles/Day7.svelte";
 export { default as Day8 } from "../puzzles/Day8.svelte";
 export { default as Day9 } from "../puzzles/Day9.svelte";
+export { default as Day10 } from "../puzzles/Day10.svelte";
