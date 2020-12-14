@@ -10,3 +10,4 @@ export { default as Day9 } from "../puzzles/Day9.svelte";
 export { default as Day10 } from "../puzzles/Day10.svelte";
 export { default as Day11 } from "../puzzles/Day11.svelte";
 export { default as Day12 } from "../puzzles/Day12.svelte";
+export { default as Day13 } from "../puzzles/Day13.svelte";
